@@ -47,9 +47,10 @@ contract Presale is Ownable {
 
     // start the presale
     function startPresale(uint256 _ends) public onlyOwner {
-        require(!started, "already started");
-        require(price > 0, "set price first");
-        require(hardcap > 0, "set hardcap first");
+        require(!started, "already started!");
+        require(price > 0, "set price first!");
+        require(hardcap > 0, "set hardcap first!");
+        require(minimum > 0, "set minimum first!");
 
         started = true;
         paused = false;
