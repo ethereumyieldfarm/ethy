@@ -4,7 +4,7 @@ import "../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 import "../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
 
-contract Presale is Ownable {
+contract ETHYPresale is Ownable {
     using SafeMath for uint256;
     IERC20 ethy;
 
@@ -12,18 +12,18 @@ contract Presale is Ownable {
     uint256 constant BP = 10000;
 
     // sale params
-    bool started;
-    uint256 price;
-    uint256 ends;
-    uint256 hardcap;
-    bool paused;
-    uint256 minimum;
+    bool    public started;
+    uint256 public price;
+    uint256 public ends;
+    uint256 public hardcap;
+    bool    public paused;
+    uint256 public minimum;
 
     // stats:
-    uint256 totalOwed;
-    uint256 weiRaised;
+    uint256 public totalOwed;
+    uint256 public weiRaised;
 
-    mapping(address => uint256) claimable;
+    mapping(address => uint256) public claimable;
 
     constructor (address addr) public { ethy = IERC20(addr); }
 
