@@ -294,6 +294,7 @@ contract DeflationaryERC20 is Context, IERC20, Ownable {
         require(sender != address(0), "ERC20: transfer from the zero address");
         require(recipient != address(0), "ERC20: transfer to the zero address");
         _beforeTokenTransfer(sender, recipient, amount);
+        require(amount > 1000, "amount to small, maths will break");
 
         // subtract send balanced
         _balances[sender] = _balances[sender].sub(amount, "ERC20: transfer amount exceeds balance");
